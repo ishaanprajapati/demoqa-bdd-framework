@@ -1,7 +1,4 @@
-// src/utils/hooks.js
 const { BeforeAll, Before, BeforeStep, After, AfterAll, Status, setDefaultTimeout } = require('@cucumber/cucumber');
-
-setDefaultTimeout(60 * 1000);
 const { request } = require('@playwright/test');
 const { fixture } = require('./fixture');
 const { invokeBrowser } = require('./browser');
@@ -13,9 +10,10 @@ const ReqresClient = require('./reqresClient');
 const Assert = require('./assert');
 const FileHelper = require('../helpers/fileHelper');
 
+setDefaultTimeout(60 * 1000);
+
 BeforeAll(async function () {
     getEnv();
-
 });
 
 Before(async function (scenario) {

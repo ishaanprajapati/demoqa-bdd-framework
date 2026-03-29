@@ -62,6 +62,7 @@ class BookStorePage {
     async fetchBookDetailsFromSearchResults() {
         const title = await this.fixture.commonUtilityObj.getText(this.bookLinks.first(), 'bookTitle');
         return this.getBookDetailsFromResults(title);
-    }}
+    }
+}
 
 module.exports = BookStorePage;

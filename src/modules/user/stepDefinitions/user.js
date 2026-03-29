@@ -1,9 +1,8 @@
 const { When, Then } = require('@cucumber/cucumber');
-const { fixture }    = require('../../../utils/fixture');
+const { fixture } = require('../../../utils/fixture');
 
-// ── CREATE ────────────────────────────────────────────────────────────────────
 When('Create a new user', async function () {
-    fixture.data.lastResponse   = await fixture.reqresClient.createUser(process.env.NEW_USER_NAME, process.env.NEW_USER_JOB);
+    fixture.data.lastResponse = await fixture.reqresClient.createUser(process.env.NEW_USER_NAME, process.env.NEW_USER_JOB);
     fixture.data.createResponse = fixture.data.lastResponse;
     this.attach(fixture.data.createResponse.apiInfo, 'text/plain');
 });
@@ -19,7 +18,7 @@ Then('Store the userId from the response', () => {
 
 When('Get the created user details', async function () {
     fixture.data.lastResponse = await fixture.reqresClient.getUser(fixture.data.userId);
-    fixture.data.getResponse  = fixture.data.lastResponse;
+    fixture.data.getResponse = fixture.data.lastResponse;
     this.attach(fixture.data.getResponse.apiInfo, 'text/plain');
 });
 
@@ -27,9 +26,8 @@ Then('Validate the fetched user id in the response', () => {
     fixture.assert.assertEqual(fixture.data.getResponse.body.data.id, fixture.data.userId, 'User ID should match created user');
 });
 
-// ── UPDATE ────────────────────────────────────────────────────────────────────
 When('Update the user name', async function () {
-    fixture.data.lastResponse   = await fixture.reqresClient.updateUser(fixture.data.userId, process.env.UPDATED_USER_NAME);
+    fixture.data.lastResponse = await fixture.reqresClient.updateUser(fixture.data.userId, process.env.UPDATED_USER_NAME);
     fixture.data.updateResponse = fixture.data.lastResponse;
     this.attach(fixture.data.updateResponse.apiInfo, 'text/plain');
 });
