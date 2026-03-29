@@ -4,7 +4,7 @@
   "scripts": {
     "pretest": "node src/initialize.js",
     "test": "npx cucumber-js",
-    "test:bookstore": "cross-env ENV=demoqa BROWSER=chrome npx cucumber-js --tags \"@BookStoreApplication\"",
+    "test:bookstore": "cross-env ENV=demoqa BROWSER=chrome npx cucumber-js --tags \"@Assignment\"",
     "test:ui": "cross-env ENV=demoqa BROWSER=chrome npx cucumber-js --tags \"@UI\"",
     "test:api": "cross-env ENV=demoqa npx cucumber-js --tags \"@CreateGetUpdateUser\"",
     "test:headless": "cross-env ENV=demoqa BROWSER=chrome HEADLESS=true npx cucumber-js",
