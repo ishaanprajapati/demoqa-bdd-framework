@@ -1,4 +1,4 @@
-const { BeforeAll, Before, BeforeStep, After, AfterAll, Status, setDefaultTimeout } = require('@cucumber/cucumber');
+﻿const { BeforeAll, Before, BeforeStep, After, AfterAll, Status, setDefaultTimeout } = require('@cucumber/cucumber');
 const { request } = require('@playwright/test');
 const { fixture } = require('./fixture');
 const { invokeBrowser } = require('./browser');
@@ -17,9 +17,9 @@ BeforeAll(async function () {
 });
 
 Before(async function (scenario) {
-    console.log('\n🖥️  -------- Execution Started --------');
-    console.log(`🖥️  Scenario : ${scenario.pickle.name}`);
-    console.log('🖥️  -----------------------------------');
+    console.log('\n[RUN]  -------- Execution Started --------');
+    console.log(`[RUN]  Scenario : ${scenario.pickle.name}`);
+    console.log('[RUN]  -----------------------------------');
     const browser = await invokeBrowser();
     const context = await browser.newContext({
         viewport: { width: 1470, height: 960 },
@@ -44,7 +44,7 @@ Before(async function (scenario) {
 });
 
 BeforeStep(function (step) {
-    console.log(`     ➡️  ${step.pickleStep.text}`);
+    console.log(`     >>  ${step.pickleStep.text}`);
 });
 
 After(async function (scenario) {
@@ -52,15 +52,15 @@ After(async function (scenario) {
         const screenshot = await fixture.page?.screenshot({ fullPage: true });
         if (screenshot) {
             this.attach(screenshot, 'image/png');
-            console.log(`📸 Screenshot attached for: "${scenario.pickle.name}"`);
+            console.log(`[SCREENSHOT] Screenshot attached for: "${scenario.pickle.name}"`);
         }
     }
 
-    const status = scenario.result?.status === Status.PASSED ? '✅ PASSED' : '❌ FAILED';
-    console.log(`📴  -----------------------------------`);
-    console.log(`📴  -------- Execution Finished -------`);
-    console.log(`📴  Result   : ${status}`);
-    console.log(`📴  -----------------------------------\n`);
+    const status = scenario.result?.status === Status.PASSED ? '[PASSED]' : '[FAILED]';
+    console.log(`[END]  -----------------------------------`);
+    console.log(`[END]  -------- Execution Finished -------`);
+    console.log(`[END]  Result   : ${status}`);
+    console.log(`[END]  -----------------------------------\n`);
 
     await fixture.apiContext?.dispose();
     await fixture.context?.close();

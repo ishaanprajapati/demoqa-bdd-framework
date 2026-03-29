@@ -1,4 +1,4 @@
-const { When, Then } = require('@cucumber/cucumber');
+﻿const { When, Then } = require('@cucumber/cucumber');
 const { fixture } = require('../../../utils/fixture');
 
 When('Create a new user', async function () {
@@ -13,7 +13,7 @@ Then('Validate the response status code is {int}', (statusCode) => {
 
 Then('Store the userId from the response', () => {
     fixture.data.userId = fixture.data.createResponse.body.data.id;
-    console.log(`🆔 Stored userId: ${fixture.data.userId}`);
+    console.log(`[ID] Stored userId: ${fixture.data.userId}`);
 });
 
 When('Get the created user details', async function () {

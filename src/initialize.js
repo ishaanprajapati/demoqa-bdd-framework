@@ -1,4 +1,4 @@
-const fs   = require('fs');
+﻿const fs   = require('fs');
 const path = require('path');
 
 const DIRS_TO_CLEAN = ['test-results', 'Downloads'];
@@ -13,4 +13,4 @@ DIRS_TO_CLEAN.forEach(dir => {
   console.log(`📁 Created: ${dir}/`);
 });
 
-console.log('✅ Pre-run cleanup complete\n');
+console.log('[OK] Pre-run cleanup complete\n');

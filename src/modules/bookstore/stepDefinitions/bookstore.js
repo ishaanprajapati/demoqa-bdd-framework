@@ -1,4 +1,4 @@
-const { Given, When, Then } = require('@cucumber/cucumber');
+﻿const { Given, When, Then } = require('@cucumber/cucumber');
 const { fixture }           = require('../../../utils/fixture');
 const fs                    = require('fs');
 
@@ -31,7 +31,7 @@ When('Search for {string}', async (title) => {
 When('Open the book {string}', async (title) => {
   await fixture.bridgeObj.bookStorePageObj.openBook(title);
   fixture.data.bookDetails = await fixture.bridgeObj.bookStorePageObj.getBookDetails();
-  console.log(`📖 Fetched details — Title: "${fixture.data.bookDetails.title}", Author: "${fixture.data.bookDetails.author}", Publisher: "${fixture.data.bookDetails.publisher}"`);
+  console.log(`[BOOK] Fetched details - Title: "${fixture.data.bookDetails.title}", Author: "${fixture.data.bookDetails.author}", Publisher: "${fixture.data.bookDetails.publisher}"`);
 });
 
 Then('Save the book Title, Author and Publisher to a file', async function () {
@@ -41,7 +41,7 @@ Then('Save the book Title, Author and Publisher to a file', async function () {
 
 When('Fetch the Title, Author and Publisher of the book', async () => {
   fixture.data.bookDetails = await fixture.bridgeObj.bookStorePageObj.fetchBookDetailsFromSearchResults();
-  console.log(`📖 Fetched from table — Title: "${fixture.data.bookDetails.title}", Author: "${fixture.data.bookDetails.author}", Publisher: "${fixture.data.bookDetails.publisher}"`);
+  console.log(`[BOOK] Fetched from table - Title: "${fixture.data.bookDetails.title}", Author: "${fixture.data.bookDetails.author}", Publisher: "${fixture.data.bookDetails.publisher}"`);
 });
 
 Then('Logout successfully', async () => {

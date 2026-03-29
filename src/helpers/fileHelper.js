@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 class FileHelper {
@@ -17,7 +17,7 @@ class FileHelper {
 
         const filePath = path.join(dir, filename);
         fs.writeFileSync(filePath, content, 'utf8');
-        console.log(`📄 Written to: ${filePath}`);
+        console.log(`[FILE] Written to: ${filePath}`);
         return filePath;
     }
 }

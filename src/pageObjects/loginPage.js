@@ -1,4 +1,4 @@
-class LoginPage {
+﻿class LoginPage {
     constructor(page, fixture) {
         this.page = page;
         this.fixture = fixture;
@@ -11,7 +11,7 @@ class LoginPage {
     async loadURL() {
         await this.page.goto(`${process.env.BASEURL}/login`);
         await this.page.waitForLoadState('networkidle');
-        console.log(`🌐 Navigated to: ${process.env.BASEURL}/login`);
+        console.log(`[NAV] Navigated to: ${process.env.BASEURL}/login`);
     }
 
     async performLogin(username, password) {
