@@ -4,10 +4,6 @@ node_modules/
 # Test output
 test-results/
 
-# Environment / secrets
-src/env/.env.*
-*.env
-
 # Auto-generated
 package-lock.json
 
