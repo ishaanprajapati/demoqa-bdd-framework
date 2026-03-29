@@ -9,8 +9,8 @@ class FileHelper {
         const content = [
             'Book Details',
             '------------',
-            `Title     : ${details.title     || 'N/A'}`,
-            `Author    : ${details.author    || 'N/A'}`,
+            `Title     : ${details.title || 'N/A'}`,
+            `Author    : ${details.author || 'N/A'}`,
             `Publisher : ${details.publisher || 'N/A'}`,
             `Saved at  : ${new Date().toLocaleString()}`,
         ].join('\n');

@@ -48,14 +48,14 @@
 
     async isLogoutButtonVisible() {
         return await this.fixture.commonUtilityObj.isElementVisible(
-            this.getButton('Logout'), 
+            this.getButton('Logout'),
             'Logout button'
         );
     }
 
     async logout() {
         await this.fixture.commonUtilityObj.clickElement(
-            this.getButton('Log out').first(), 
+            this.getButton('Log out').first(),
             'Logout button'
         );
         await this.fixture.commonUtilityObj.waitForState(

@@ -6,7 +6,7 @@ class BookStorePage {
         this.bookLinks = page.locator('//a[contains(@href, "/books?search")]');
         this.btnGoToBookStore = page.locator('#gotoStore');
         this.txtBookDetails = (detailName) => page.locator(`//div[@id='${detailName}-wrapper']//label[@id="userName-value"]`);
-        this.getColumnValue = (bookTitle, columnHeader) => 
+        this.getColumnValue = (bookTitle, columnHeader) =>
             this.page.locator(`//a[text()='${bookTitle}']/ancestor::tr/td[count(//span[text()='${columnHeader}']/parent::th/preceding-sibling::th)+1]`);
     }
 
@@ -46,8 +46,8 @@ class BookStorePage {
 
     async getBookDetails() {
         return {
-            title:     await this.fixture.commonUtilityObj.getText(this.txtBookDetails('title'),     'bookTitle'),
-            author:    await this.fixture.commonUtilityObj.getText(this.txtBookDetails('author'),    'bookAuthor'),
+            title: await this.fixture.commonUtilityObj.getText(this.txtBookDetails('title'), 'bookTitle'),
+            author: await this.fixture.commonUtilityObj.getText(this.txtBookDetails('author'), 'bookAuthor'),
             publisher: await this.fixture.commonUtilityObj.getText(this.txtBookDetails('publisher'), 'bookPublisher'),
         };
     }
@@ -55,7 +55,7 @@ class BookStorePage {
     async getBookDetailsFromResults(title) {
         return {
             title,
-            author:    await this.fixture.commonUtilityObj.getText(this.getColumnValue(title, 'Author'),    'bookAuthor'),
+            author: await this.fixture.commonUtilityObj.getText(this.getColumnValue(title, 'Author'), 'bookAuthor'),
             publisher: await this.fixture.commonUtilityObj.getText(this.getColumnValue(title, 'Publisher'), 'bookPublisher'),
         };
     }

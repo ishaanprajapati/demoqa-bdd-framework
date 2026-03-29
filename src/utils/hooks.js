@@ -36,8 +36,8 @@ Before(async function (scenario) {
     fixture.apiContext = apiContext;
     fixture.bridgeObj = new Bridge(page, fixture, context);
     fixture.commonUtilityObj = new CommonUtility(page);
-    fixture.apiHelper      = new ApiHelper(apiContext);
-    fixture.reqresClient   = new ReqresClient(fixture.apiHelper);
+    fixture.apiHelper = new ApiHelper(apiContext);
+    fixture.reqresClient = new ReqresClient(fixture.apiHelper);
     fixture.fileHelperObj = new FileHelper();
     fixture.assert = new Assert();
     fixture.data = {};
@@ -67,4 +67,4 @@ After(async function (scenario) {
     await fixture.browser?.close();
 });
 
-AfterAll(async function () {});
+AfterAll(async function () { });

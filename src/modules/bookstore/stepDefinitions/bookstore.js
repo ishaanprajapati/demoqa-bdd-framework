@@ -1,6 +1,6 @@
 ﻿const { Given, When, Then } = require('@cucumber/cucumber');
-const { fixture }           = require('../../../utils/fixture');
-const fs                    = require('fs');
+const { fixture } = require('../../../utils/fixture');
+const fs = require('fs');
 
 Given('Navigate to the application', async () => {
   await fixture.bridgeObj.loginPageObj.loadURL();
@@ -14,7 +14,7 @@ Given('Perform login', async () => {
 });
 
 Then('Validate username and logout button are visible', async () => {
-  const usernameText  = await fixture.bridgeObj.loginPageObj.fetchUserNameLabel();
+  const usernameText = await fixture.bridgeObj.loginPageObj.fetchUserNameLabel();
   const logoutVisible = await fixture.bridgeObj.loginPageObj.isLogoutButtonVisible();
   fixture.assert.assertEqual(usernameText, process.env.APP_USERNAME, 'Username label should match logged-in user');
   fixture.assert.assertTrue(logoutVisible, 'Logout button should be visible');
